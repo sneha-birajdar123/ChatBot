@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Custom scrollbar */
+        #chat-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        #chat-box::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+        #chat-box::-webkit-scrollbar-thumb {
+            background: #60a5fa;
+            border-radius: 10px;
+        }
+
+        /* Smooth fade-in for messages */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-blue-100 flex justify-center items-center min-h-screen p-4">
+
+    <!-- Chatbot Container -->
+    <div class="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg flex flex-col h-[75vh] overflow-hidden">
+        
+        <!-- Chat Header -->
+        <div class="bg-blue-500 text-white text-lg font-semibold py-3 px-4 rounded-t-lg">
+            AI Chatbot
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chat-box" class="flex-1 p-4 space-y-4 overflow-y-auto bg-gray-100 border border-gray-300 rounded-lg">
+            <div class="message self-start bg-blue-300 text-gray-800 p-3 rounded-lg max-w-[80%] shadow-md">
+                Hello! How can I assist you today?
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="flex items-center border-t border-gray-300 p-3 bg-white">
+            <input type="text" id="user-input" placeholder="Type a message..." 
+                   class="flex-1 p-3 bg-gray-100 text-gray-700 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500">
+            <button id="send-btn" 
+                    class="bg-blue-500 text-white font-medium px-4 py-3 rounded-r-lg hover:bg-blue-600 hover:scale-105 transition-all duration-300 shadow-md">
+                Send
+            </button>
+        </div>
+    </div>
+<script src="script.js"></script>
